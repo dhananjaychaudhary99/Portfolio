@@ -1,0 +1,245 @@
+:root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #e2e8f0;
+    --accent: #2e71d6;
+}
+
+/* Reset */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    color:var(--text);
+    line-height:1.6;
+    background: linear-gradient(135deg, #ff7eb3, #65c7f7, #0052d4);
+    scroll-behavior: smooth;
+}
+
+/* Container */
+.container {
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+.header {
+    padding:20px 0;
+    position:sticky;
+    top:0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Navigation */
+.nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Logo */
+.logo {
+    font-weight:700;
+    font-size:20px;
+    color:white;
+}
+
+/* Nav Links */
+.nav-links {
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-links a {
+    text-decoration:none;
+    color:white;
+    transition: color 0.3s ease;
+}
+
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align:center;
+    padding:100px 0 80px;
+}
+
+.profile-img {
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    border:3px solid white;
+    margin-bottom:25px;
+    object-fit:cover;
+}
+
+/* Buttons */
+.btn {
+    padding:12px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    margin:5px;
+    display:inline-block;
+    font-weight:600;
+    transition: all 0.3s ease;
+}
+
+.primary {
+    background:white;
+    color:#333;
+}
+
+.secondary {
+    border:1px solid white;
+    color:white;
+}
+
+.secondary:hover {
+    background:white;
+    color:#333;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    padding:80px 0;
+}
+
+.section h2 {
+    text-align:center;
+    margin-bottom:40px;
+}
+
+/* ================= SKILLS GRID ================= */
+.skills-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+/* Glassmorphism Skill Card */
+.card {
+    aspect-ratio:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(14px);
+    border:1px solid rgba(255,255,255,0.35);
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-10px);
+}
+
+/* Footer */
+.footer {
+    text-align:center;
+    padding:25px 0;
+    background: rgba(0,0,0,0.2);
+    margin-top:50px;
+    backdrop-filter: blur(10px);
+}
+
+/* ================= RADIAL MENU ================= */
+.menu {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+}
+
+/* Toggle button */
+.menu .toggle {
+    position: relative; /* center of menu */
+    width: 60px;
+    height: 60px;
+    background: var(--accent, #ff4081);
+    color: #fff;
+    font-size: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.menu.active .toggle {
+    transform: rotate(45deg); /* plus rotates to × */
+}
+
+/* Atoms / menu items */
+.menu li:not(.toggle) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transform: scale(0) translate(0, 0); /* hidden initially */
+    transform-origin: center center;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.menu li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu li:hover {
+    background: var(--clr, #fff);
+    color: #000;
+}
+
+
+/* Reveal Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
